@@ -16,11 +16,11 @@ import { ConfigModule } from '@nestjs/config';
     JobIdModule,
     TypeOrmModule.forRoot({
       type: 'postgres',
-      port: 5432,
+      port: 5440,
       database: 'gchoi',
       username: 'gchoi',
       password: 'gchoi',
-      host: 'postgres-db',
+      host: '127.0.0.1',
       entities: [__dirname + '/**/*.entity.*'],
       synchronize: true,
       logging: true,

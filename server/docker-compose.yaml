@@ -1,16 +1,14 @@
 version: '3.3'
 
 services:
-  bot-server:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    ports:
-      - 3000:3000
-
+  # bot-server:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile
+  #   ports:
+  #     - 3000:3000
   postgres-db:
     image: postgres
-    restart: always
     environment:
       POSTGRES_USER: gchoi
       POSTGRES_PASSWORD: gchoi
@@ -18,8 +16,7 @@ services:
     volumes:
       - ./data/postgresql/data:/var/lib/postgresql/data
     ports:
-      - 5432:5432
-
+      - 5440:5432
   # adminer:
   #   image: adminer
   #   restart: always
