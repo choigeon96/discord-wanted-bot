@@ -10,15 +10,13 @@ export class JobIdService {
     private readonly jobIdRepository: Repository<JobId>,
   ) {}
 
-  async checkDupAndInsert(jobId: string) {
-    try {
-      const isDup = await this.jobIdRepository.findOne({ where: { jobId } });
-      if (isDup) return false;
-      const result = await this.jobIdRepository.save({ jobId });
-      return result ? true : false;
-    } catch (err) {
-      console.error(err);
-      return false;
-    }
+  async checkDup(jobId: string) {
+    const isDup = await this.jobIdRepository.findOne({ where: { jobId } });
+    return isDup ? true : false;
+  }
+
+  async insertJobId(jobId: string) {
+    const result = await this.jobIdRepository.save({ jobId });
+    return result ? true : false;
   }
 }
