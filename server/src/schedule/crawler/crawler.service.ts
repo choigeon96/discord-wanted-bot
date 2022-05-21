@@ -4,8 +4,6 @@ import { JobIdService } from 'src/job-id/job-id.service';
 import axios from 'axios';
 import puppeteer from 'puppeteer';
 import cheerio from 'cheerio';
-// const puppeteer = require('puppeteer');
-// const cheerio = require('cheerio');
 
 interface IJobInfo {
   id: string;
@@ -19,7 +17,7 @@ export class CrawlerService {
   constructor(private readonly jobIdService: JobIdService) {}
   private readonly logger = new Logger(CrawlerService.name);
 
-  @Cron('0 0/1 * * * *', { name: 'crawler' })
+  @Cron('0 0/5 * * * *', { name: 'crawler' })
   async handleCron() {
     this.logger.log('Crawler is work');
 
