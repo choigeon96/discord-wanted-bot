@@ -112,7 +112,7 @@ export class CrawlerService {
 
       return true;
     } catch (err) {
-      console.error('discordErr');
+      console.error(err);
       return false;
     }
   }
